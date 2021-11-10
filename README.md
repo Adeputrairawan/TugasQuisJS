@@ -1,2 +1,0 @@
-# TugasQuisJS
-Quis JS individu
