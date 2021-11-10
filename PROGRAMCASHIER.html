@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+ <title>PROGRAM KASIR</title>
+ <style>
+  .tengah{
+            background-color : White
+            background-position:center;
+            width:auto;
+            height:auto;
+         
+        }
+  table{
+   background:Blue;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   margin: auto;
+   margin-bottom: 50px;
+
+  
+ </style>
+</head>
+<body class="tengah">
+ <div>
+  
+  <table border="1">
+   <h2 align="center" style="background: blue">PROGRAM PENJUALAN BUAH</h2>
+   <tr>    
+    <th>Nama</th>
+    <th><input type="text"  id="nama" placeholder="Nama Konsumen" onchange="total()" ></th>
+	
+   </tr>
+   <tr>    
+    <th>Nama Buah</th>
+    <th><select id="status" onchange="total()">
+            <option>Anggur</option>
+            <option>Apel</option>
+            <option>Semangka</option>
+    </select></th>
+   </tr>
+   <tr>    
+    <th>Jumlah Beli</th>    
+    <th><input type="number" id="jumlah"  value="0" onchange="total()"></th>
+   </tr>
+   <tr>    
+    <th>Harga</th>
+    <th><input type="text"  id="harga" onchange="total()"></th>
+   </tr>
+   <tr>    
+    <th>jumlah total</th>
+    <th><input type="text" style="background: yellow" id="total" disabled></th>
+   </tr>
+
+   <tr>    
+    <th>Pembayaran</th>    
+    <th><input type="text" id="bayar" onchange="total()"></th>
+   </tr>
+   
+   <tr>    
+    <th>Kembalian</th>
+    <th><input type="text" style="background: yellow" id="total1" disabled></th>
+   </tr>
+         
+            <tr>
+                <th><input type="button" style="background: Grey" onclick="window.print()" value="CETAK"></th>
+            </tr>
+   
+   <tr>   
+    <table width="300" height="201px" border="8">
+    <th><label align="landscape"  id="cetak" ></label></th>
+    </table>
+   </tr>         
+   
+  </table>
+        <marquee scrolldelay="80" direction="Right" bgcolor="Blue"> THANK YOU VERY MUCH </marquee>
+  
+  
+  <script type="text/javascript">
+  
+  function total() {
+   var nama = document.getElementById('nama').value;
+   var harga =  parseInt(document.getElementById('harga').value);
+   var jumlah_beli =  parseInt(document.getElementById('jumlah').value);
+   var pembayaran =  parseInt(document.getElementById('bayar').value);
+   var Nama_Buah = document.getElementById("status").value;
+   var jumlah_harga = harga * jumlah_beli;
+    document.getElementById('total').value = jumlah_harga;
+
+   var kembali = pembayaran - jumlah_harga;
+    document.getElementById('total1').value = kembali;
+  
+   var cetak = "Nama    : "+nama+"</br>"+
+                      "Harga   : "+harga+"</br>"+
+                      "Jumlah_beli  : "+jumlah_beli+"</br>"+
+                      "Nama_Buah   : "+Nama_Buah+"</br>"+
+                      "Jumlah_total  : "+jumlah_harga+"</br>"+
+                      "pembayaran  : "+pembayaran+"</br>"+
+                      "Kembalian  : "+kembali;
+    document.getElementById("cetak").innerHTML=cetak;
+  }
+  
+  </script>
+ </div>
+ <footer class="footer">
+            <p class="footer__title">Ade Putra irawan</p>
+        </footer>
+
+</body>
+</html>
